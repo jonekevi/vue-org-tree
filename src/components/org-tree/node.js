@@ -107,7 +107,7 @@ export function renderLabel(h, data, context) {
     childNodes.push(renderBtn(h, data, context))
   }
 
-  const cls = ['org-tree-node-label-inner']
+  const cls = ['org-tree-node-label-inner', 'tooltip']
   let { labelWidth, labelClassName, selectedClassName, selectedKey } = props
 
   if (typeof labelWidth === 'number') {
@@ -147,7 +147,7 @@ export function renderLabel(h, data, context) {
       'mouseout': createListener(mouseOutHandler, data),
       'mouseover': createListener(mouseOverHandler, data),
     }
-  }, childNodes)])
+  }, [h('span',{className:"tooltiptext"},"tool tip text"), childNodes])])
 }
 
 // 创建 node 子节点
